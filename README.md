@@ -84,10 +84,6 @@ doctl registry create ssl-checker-registry
 
 doctl registry login
 
-**Update backend deployment**
-
-Update backend-deployment file inside backend directory to update MongoDB connection string
-
 **Build and push the backend image**
 
 cd /do-assessment/backend/
@@ -104,6 +100,10 @@ cd /do-assessment/frontend
 docker build -t registry.digitalocean.com/"registry_name"/frontend:latest .
 
 docker push registry.digitalocean.com/"registry_name"/frontend:latest
+
+**Update backend deployment**
+
+Update backend-deployment file inside backend directory to update MongoDB connection string
 
 
 4️⃣ **Deploy to Kubernetes**
