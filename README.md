@@ -81,6 +81,9 @@ doctl registry create ssl-checker-registry
 **Authenticate with DOCR**
 doctl registry login
 
+**Update backend deployment**
+Update backend-deployment file inside backend directory to update MongoDB connection string
+
 **Build and push the backend image**
 cd /do-assessment/backend/
 
