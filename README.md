@@ -17,23 +17,26 @@ This web application allows users to retrieve SSL certificate details for any we
 For instance, enterprise organizations like Microsoft and Cisco have recently experienced certificate outages. A monitoring tool like this would help customers prevent such issues.
 
 **Project Structure:**
-/ssl-checker
-backend/             # Node.js API
-server.js        # Express API handling certificate fetching
-package.json     # Dependencies
-Dockerfile       # Backend Dockerfile
-frontend/            # Nginx Static Frontend
-index.html       # Frontend UI
-nginx.conf       # Nginx config to serve frontend and reverse-proxy requests to Node.js
-Dockerfile       # Frontend Dockerfile
-kubernetes/        # Kubernetes Deployment Files
-namespaces.yaml
-backend-deployment.yaml
-frontend-deployment.yaml
-mongodb-secret.yaml
-hpa.yaml
-namespace.yaml
-docker-compose.yaml
+📁 /ssl-checker (Root)
+Centralized project directory for managing backend, frontend, and Kubernetes configurations.
+📂 backend/ (Node.js API for SSL certificate fetching)
+server.js → Express API that fetches SSL certificate details from a given domain.
+package.json → Manages dependencies (e.g., express, axios, mongoose).
+Dockerfile → Defines the containerized environment for the backend service.
+📂 frontend/ (Nginx Static Frontend)
+index.html → Simple UI for user input (enter website URL).
+nginx.conf → Configures Nginx to:
+Serve static assets.
+Reverse-proxy requests to the backend API.
+Dockerfile → Builds and serves the frontend using Nginx.
+📂 kubernetes/ (Kubernetes Deployment Files)
+namespaces.yaml → Defines namespaces for isolating services.
+backend-deployment.yaml → Deploys the Node.js API with necessary resources and environment settings.
+frontend-deployment.yaml → Deploys the Nginx frontend service.
+mongodb-secret.yaml → Stores sensitive MongoDB credentials as Kubernetes secrets.
+hpa.yaml → Horizontal Pod Autoscaler (HPA) config for auto-scaling based on CPU/memory usage.
+namespace.yaml → Namespace definition (ensure this is referenced in other YAML files).
+docker-compose.yaml → Useful for local development/testing of services.
 
 **Deployment Guide:**
 **Step 1: Create a Jump Server in DigitalOcean Droplet**
