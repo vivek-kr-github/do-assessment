@@ -147,8 +147,7 @@ app.post('/get-certificate', async (req, res) => {
         res.status(500).json({ error: "Invalid URL or No SSL certificate found", details: error.message });
     });
 });
-
-// Start Server
+Start Server
 app.listen(PORT, () => {
     console.log(`🚀 Server running on http://localhost:${PORT}`);
 });
