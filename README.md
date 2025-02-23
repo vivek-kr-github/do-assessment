@@ -68,6 +68,7 @@ kubectl & doctl CLI installed
 
 **Authenticate with DigitalOcean**
 
+```bash
 export DO_API_TOKEN="your-digitalocean-api-token"
 
 doctl auth init --access-token $DO_API_TOKEN
@@ -77,37 +78,53 @@ doctl kubernetes cluster create ssl-checker-cluster --region bglr --size s-2vcpu
 docker login registry.digitalocean.com
 
 doctl registry create ssl-checker-registry
+```
 
 3️⃣ Build & Push Docker Images
 
 **Authenticate with DOCR**
 
+```bash
 doctl registry login
+```
 
 **Build and push the backend image**
-
+```bash
 cd /do-assessment/backend/
+```
 
+```bash
 docker build -t registry.digitalocean.com/"registry_name"/backend:latest .
+```
 
+```bash
 docker push registry.digitalocean.com/"registry_name"/backend:latest
-
+```
 
 **Build and push frontend image**
 
+```bash
 cd /do-assessment/frontend
+```
 
+```bash
 docker build -t registry.digitalocean.com/"registry_name"/frontend:latest .
+```
 
+```bash
 docker push registry.digitalocean.com/"registry_name"/frontend:latest
+```
 
 **Update backend deployment**
 
+```bash
 Update backend-deployment file inside backend directory to update MongoDB connection string
+```
 
 
 4️⃣ **Deploy to Kubernetes**
 
+```bash
 cd /do-assessment/yaml
 
 kubectl apply -f kubernetes/namespaces.yaml
@@ -119,10 +136,11 @@ kubectl apply -f kubernetes/backend-deployment.yaml
 kubectl apply -f kubernetes/frontend-deployment.yaml
 
 kubectl apply -f kubernetes/hpa.yaml
-
+```
 
 5️⃣ **Verify Deployment**
 
+```bash
 kubectl get pods -A
 
 kubectl get deployments -A
@@ -132,11 +150,13 @@ kubectl get secrets -A
 kubectl get services -A
 
 kubectl get hpa -A
+```
 
 **How It Works (Flow Diagram)**
 
 User enters a website URL in the frontend.
 
+```bash
 Request is sent through DigitalOcean Load Balancer (offloaded with Let's Encrypt SSL).
 
 The load balancer forwards the request to Nginx (Frontend).
@@ -150,3 +170,4 @@ Certificate details are stored in DigitalOcean Managed MongoDB.
 The response is sent back to the user.
 
 HPA scales frontend & backend pods based on traffic load.
+```
