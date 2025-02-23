@@ -115,12 +115,17 @@ docker build -t registry.digitalocean.com/"registry_name"/frontend:latest .
 docker push registry.digitalocean.com/"registry_name"/frontend:latest
 ```
 
-**Update backend deployment**
+**Update server.js & mongodb-secret**
 
 ```bash
 Update server.js to update MongoDB connection string && update base64 encoded connection string in mmongodb-secrets.yaml
 ```
 
+**Update frontend deployment**
+
+```bash
+Update the SSL certificate ID created in the DO Security Page & Certificate ID can be found by executing "doctl compute certificate list"
+```
 
 4️⃣ **Deploy to Kubernetes**
 
