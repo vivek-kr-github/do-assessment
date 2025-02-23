@@ -17,7 +17,7 @@ This web application allows users to retrieve SSL certificate details for any we
 For instance, enterprise organizations like Microsoft and Cisco have recently experienced certificate outages. A monitoring tool like this would help customers prevent such issues.
 
 **Project Structure:**
-* [ssl-checker (Root)] - (Centralized project directory for managing backend, frontend, and Kubernetes configurations.)
+* [do-assessment (Root)] - (Centralized project directory for managing backend, frontend, and Kubernetes configurations.)
 * [backend] - Node.js API for SSL certificate fetching
 * [server.js] - Express API that fetches SSL certificate details from a given domain
 * [package.json] - Manages dependencies (e.g., express, axios, mongoose)
