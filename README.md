@@ -65,7 +65,7 @@ kubectl & doctl CLI installed
 
 2️⃣ **Setup DigitalOcean Resources**
 
-# Authenticate with DigitalOcean
+**Authenticate with DigitalOcean**
 export DO_API_TOKEN="your-digitalocean-api-token"
 doctl auth init --access-token $DO_API_TOKEN
 
@@ -76,15 +76,15 @@ doctl registry create ssl-checker-registry
 
 3️⃣ Build & Push Docker Images
 
-# Authenticate with DOCR
+**Authenticate with DOCR**
 doctl registry login
 
-# Build and push the backend image
+**Build and push the backend image**
 cd /do-assessment/backend/
 docker build -t registry.digitalocean.com/ssl-checker-registry/backend:latest .
 docker push registry.digitalocean.com/ssl-checker-registry/backend:latest
 
-# Build and push frontend image
+**Build and push frontend image**
 cd /do-assessment/frontend
 docker build -t registry.digitalocean.com/ssl-checker-registry/frontend:latest .
 docker push registry.digitalocean.com/ssl-checker-registry/frontend:latest
