@@ -7,7 +7,7 @@ const app = express();
 const PORT = 5000;
 
 // MongoDB Connection (Managed MongoDB on DigitalOcean)
-const MONGO_URI = "mongodb+srv://doadmin:4N2db95jIKFy6318@private-ssl-mongodb-ec84c3c5.mongo.ondigitalocean.com/admin?tls=true&authSource=admin&replicaSet=ssl-mongodb";
+const MONGO_URI = "mongodb+srv://username:password@private-ssl-mongodb-ec84c3c5.mongo.ondigitalocean.com/admin?tls=true&authSource=admin&replicaSet=ssl-mongodb";
 
 mongoose.connect(MONGO_URI, {
     useNewUrlParser: true,
