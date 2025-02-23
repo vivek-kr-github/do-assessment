@@ -67,11 +67,13 @@ kubectl & doctl CLI installed
 
 **Authenticate with DigitalOcean**
 export DO_API_TOKEN="your-digitalocean-api-token"
+
 doctl auth init --access-token $DO_API_TOKEN
 
 doctl kubernetes cluster create ssl-checker-cluster --region bglr --size s-2vcpu-4gb --count 2
 
 docker login registry.digitalocean.com
+
 doctl registry create ssl-checker-registry
 
 3️⃣ Build & Push Docker Images
