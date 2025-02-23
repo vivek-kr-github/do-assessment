@@ -92,9 +92,9 @@ Update backend-deployment file inside backend directory to update MongoDB connec
 
 cd /do-assessment/backend/
 
-docker build -t registry.digitalocean.com/ssl-checker-registry/backend:latest .
+docker build -t registry.digitalocean.com/"registry_name"/backend:latest .
 
-docker push registry.digitalocean.com/ssl-checker-registry/backend:latest
+docker push registry.digitalocean.com/"registry_name"/backend:latest
 
 
 **Build and push frontend image**
