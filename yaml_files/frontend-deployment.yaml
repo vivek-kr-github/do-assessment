@@ -29,7 +29,7 @@ metadata:
   name: frontend-service
   namespace: frontend
   annotations:
-    service.beta.kubernetes.io/do-loadbalancer-certificate-id: "501ec1f1-0e54-44a2-84cc-bf69e532927f"
+    service.beta.kubernetes.io/do-loadbalancer-certificate-id: "4eb12c9c-c6ba-4cf9-bdf8-d185c9c1b6aa"
     service.beta.kubernetes.io/do-loadbalancer-protocol: "https"
 spec:
   selector:
