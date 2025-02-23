@@ -83,28 +83,44 @@ doctl registry login
 
 **Build and push the backend image**
 cd /do-assessment/backend/
+
 docker build -t registry.digitalocean.com/ssl-checker-registry/backend:latest .
+
 docker push registry.digitalocean.com/ssl-checker-registry/backend:latest
+
 
 **Build and push frontend image**
 cd /do-assessment/frontend
+
 docker build -t registry.digitalocean.com/ssl-checker-registry/frontend:latest .
+
 docker push registry.digitalocean.com/ssl-checker-registry/frontend:latest
+
 
 4️⃣ **Deploy to Kubernetes**
 cd /do-assessment/yaml
+
 kubectl apply -f kubernetes/namespaces.yaml
+
 kubectl apply -f kubernetes/mongodb-secret.yaml
+
 kubectl apply -f kubernetes/backend-deployment.yaml
+
 kubectl apply -f kubernetes/frontend-deployment.yaml
+
 kubectl apply -f kubernetes/hpa.yaml
+
 
 5️⃣ **Verify Deployment**
 
 kubectl get pods -A
+
 kubectl get deployments -A
+
 kubectl get secrets -A
+
 kubectl get services -A
+
 kubectl get hpa -A
 
 **How It Works (Flow Diagram)**
