@@ -118,7 +118,7 @@ docker push registry.digitalocean.com/"registry_name"/frontend:latest
 **Update backend deployment**
 
 ```bash
-Update backend-deployment file inside backend directory to update MongoDB connection string
+Update server.js to update MongoDB connection string && update base64 encoded connection string in mmongodb-secrets.yaml
 ```
 
 
