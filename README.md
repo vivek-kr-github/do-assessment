@@ -42,7 +42,7 @@ Clone this repository:
 > git clone git@github.com:vivek-kr-github/do-assessment.git
 > cd do-assessment
 ```
-Features
+**Features**
 
 * Fetch SSL certificate details for any domain
 * Store certificate details in DigitalOcean Managed MongoDB
