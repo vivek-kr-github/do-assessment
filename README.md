@@ -1,4 +1,5 @@
 **Overview of Application - SSL Certificate Checker:**
+
 SSL Checker is a cloud-native web application deployed on DigitalOcean Kubernetes (DOKS) that allows users to fetch and log SSL certificate details for a given website URL. The application consists of a frontend (Nginx), a backend (Node.js API), and a managed MongoDB database. It is containerized using Docker and utilizes DigitalOcean Container Registry (DOCR) for image storage.
 
 **URL:https://ssl-checker.vivekkr.online/**
