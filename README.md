@@ -36,6 +36,7 @@ For instance, enterprise organizations like Microsoft and Cisco have recently ex
 * [docker-compose.yaml] - Useful for local development/testing of services
 
 ### Building From Source Code
+
 Clone this repository:
 
 ```bash
@@ -66,6 +67,7 @@ kubectl & doctl CLI installed
 2️⃣ **Setup DigitalOcean Resources**
 
 **Authenticate with DigitalOcean**
+
 export DO_API_TOKEN="your-digitalocean-api-token"
 
 doctl auth init --access-token $DO_API_TOKEN
@@ -79,12 +81,15 @@ doctl registry create ssl-checker-registry
 3️⃣ Build & Push Docker Images
 
 **Authenticate with DOCR**
+
 doctl registry login
 
 **Update backend deployment**
+
 Update backend-deployment file inside backend directory to update MongoDB connection string
 
 **Build and push the backend image**
+
 cd /do-assessment/backend/
 
 docker build -t registry.digitalocean.com/ssl-checker-registry/backend:latest .
@@ -93,14 +98,16 @@ docker push registry.digitalocean.com/ssl-checker-registry/backend:latest
 
 
 **Build and push frontend image**
+
 cd /do-assessment/frontend
 
-docker build -t registry.digitalocean.com/ssl-checker-registry/frontend:latest .
+docker build -t registry.digitalocean.com/"registry_name"/frontend:latest .
 
-docker push registry.digitalocean.com/ssl-checker-registry/frontend:latest
+docker push registry.digitalocean.com/"registry_name"/frontend:latest
 
 
 4️⃣ **Deploy to Kubernetes**
+
 cd /do-assessment/yaml
 
 kubectl apply -f kubernetes/namespaces.yaml
