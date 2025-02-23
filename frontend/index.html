@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SSL Certificate Checker</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; padding: 50px; }
+        input { padding: 10px; width: 300px; }
+        button { padding: 10px; cursor: pointer; }
+        pre { text-align: left; background: #f4f4f4; padding: 10px; width: 60%; margin: auto; border-radius: 5px; }
+    </style>
+</head>
+<body>
+    <h2>SSL Certificate Checker</h2>
+    <input type="text" id="website-url" placeholder="Enter Website URL (e.g., https://example.com)">
+    <button onclick="fetchCertificate()">Check SSL</button>
+    <h3>Certificate Details:</h3>
+    <pre id="output">No Data</pre>
+
+    <script>
+        async function fetchCertificate() {
+            const url = document.getElementById("website-url").value;
+            if (!url) {
+                alert("Please enter a valid URL.");
+                return;
+            }
+
+            try {
+                const response = await fetch('/get-certificate', {
+                    method: 'POST',
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ url })
+                });
+                const data = await response.json();
+                document.getElementById("output").textContent = JSON.stringify(data, null, 4);
+            } catch (error) {
+                document.getElementById("output").textContent = "Error fetching certificate details.";
+            }
+        }
+    </script>
+</body>
+</html>
+

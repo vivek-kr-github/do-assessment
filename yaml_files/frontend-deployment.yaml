@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend
+  namespace: frontend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: frontend
+  template:
+    metadata:
+      labels:
+        app: frontend
+    spec:
+      dnsPolicy: ClusterFirst  # Ensure correct DNS settings
+      containers:
+        - name: frontend
+          image: registry.digitalocean.com/ssl-checker-registry/ssl-checker-frontend:latest
+          ports:
+            - containerPort: 80
+          env:
+            - name: BACKEND_URL
+              value: "http://backend-service.backend.svc.cluster.local:5000"  # Inject backend URL into the environment
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontend-service
+  namespace: frontend
+  annotations:
+    service.beta.kubernetes.io/do-loadbalancer-certificate-id: "501ec1f1-0e54-44a2-84cc-bf69e532927f"
+    service.beta.kubernetes.io/do-loadbalancer-protocol: "https"
+spec:
+  selector:
+    app: frontend
+  ports:
+    - protocol: TCP
+      port: 443
+      targetPort: 80 #Nginx is running on port 80
+  type: LoadBalancer
+

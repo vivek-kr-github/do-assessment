@@ -1,0 +1,14 @@
+{
+  "name": "ssl-checker",
+  "version": "1.0.0",
+  "description": "Fetch SSL certificate details for user-entered websites",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^7.0.0"
+  },
+  "scripts": {
+    "start": "node server.js"
+  }
+}
+
