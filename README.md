@@ -18,35 +18,35 @@ For instance, enterprise organizations like Microsoft and Cisco have recently ex
 
 **Project Structure:**
 /ssl-checker
-│── backend/             # Node.js API
-│   ├── server.js        # Express API handling certificate fetching
-│   ├── package.json     # Dependencies
-│   ├── Dockerfile       # Backend Dockerfile
-│── frontend/            # Nginx Static Frontend
-│   ├── index.html       # Frontend UI
-│   ├── nginx.conf       # Nginx config to serve frontend and reverse-proxy requests to Node.js
-│   ├── Dockerfile       # Frontend Dockerfile
-│── kubernetes/          # Kubernetes Deployment Files
-│   ├── namespaces.yaml
-│   ├── backend-deployment.yaml
-│   ├── frontend-deployment.yaml
-│   ├── mongodb-secret.yaml
-│   ├── hpa.yaml
-│   ├── namespace.yaml
-│   ├── docker-compose.yaml
+backend/             # Node.js API
+server.js        # Express API handling certificate fetching
+package.json     # Dependencies
+Dockerfile       # Backend Dockerfile
+frontend/            # Nginx Static Frontend
+index.html       # Frontend UI
+nginx.conf       # Nginx config to serve frontend and reverse-proxy requests to Node.js
+Dockerfile       # Frontend Dockerfile
+kubernetes/        # Kubernetes Deployment Files
+namespaces.yaml
+backend-deployment.yaml
+frontend-deployment.yaml
+mongodb-secret.yaml
+hpa.yaml
+namespace.yaml
+docker-compose.yaml
 
 **Deployment Guide:**
 **Step 1: Create a Jump Server in DigitalOcean Droplet**
 
 A Jump Server (or Bastion Host) is an intermediary server that helps secure access to your infrastructure.
 1.1 Create a Droplet
--> Log in to DigitalOcean.
--> Click on Create → Droplets.
--> Choose an image: Ubuntu 22.04 (or the latest version).
--> Choose a plan: A basic droplet with at least 1GB RAM is recommended.
--> Select a data center region(I choose Bangalore)
--> Add SSH keys for authentication.
--> Click Create Droplet.
+Log in to DigitalOcean.
+Click on Create → Droplets.
+Choose an image: Ubuntu 22.04 (or the latest version).
+Choose a plan: A basic droplet with at least 1GB RAM is recommended.
+Select a data center region(I choose Bangalore)
+Add SSH keys for authentication.
+Click Create Droplet.
 
 1.2 Configure the Jump Server
 SSH into your droplet:
